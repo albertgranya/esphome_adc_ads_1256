@@ -4,7 +4,7 @@
 namespace esphome {
 namespace adc_ads_1256 {
 
-static const char *TAG = "adc_ads_1256.component";
+static const char *TAG = "adc_ads_1256";
 
 void ADCADS1256::setup() {
 
