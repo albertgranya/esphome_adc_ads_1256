@@ -3,9 +3,7 @@ import esphome.config_validation as cv
 from esphome.components import spi
 from esphome.core import CORE
 from esphome import pins
-from esphome.const import (
-    CONF_ID,CONF_MOSI_PIN,CONF_MISO_PIN,CONF_DRDY_PIN, CONF_RESET_PIN,CONF_CHIP_SELECT_PIN,CONF_SS_PIN,CONF_VREF, CONF_CLOCK_MHZ
-)
+from esphome.const import CONF_ID
 CODEOWNERS = ['@albertgranya']
 
 DEPENDENCIES = ['spi','output']
@@ -69,6 +67,7 @@ async def to_code(config):
         cs = await cg.gpio_pin_expression(config[CONF_CHIP_SELECT_PIN])
         cg.add(var.set_chip_select_pin(cs))
     
+
 
 
 
