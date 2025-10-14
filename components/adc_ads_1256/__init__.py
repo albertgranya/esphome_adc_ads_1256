@@ -3,7 +3,7 @@ import esphome.config_validation as cv
 from esphome.components import spi
 from esphome.const import CONF_ID
 from esphome.const import CONF_MOSI_PIN,CONF_MISO_PIN
-from esphome.const import CONF_SSS_PIN,CONF_VREF, CONF_CLOCK_MHZ,CONF_DRDY_PIN, CONF_RESET_PIN,CONF_CHIP_SELECT_PIN
+from esphome.const import CONF_VREF, CONF_CLOCK_MHZ,CONF_DRDY_PIN, CONF_RESET_PIN,CONF_CHIP_SELECT_PIN
 
 
 from esphome.core import CORE
@@ -32,7 +32,6 @@ CONFIG_SCHEMA = cv.Schema({
     cv.GenerateID(): _declare_type,
     cv.Optional(CONF_MOSI_PIN, default=18): pins.gpio_output_pin_schema,
     cv.Optional(CONF_MISO_PIN, default=19): pins.gpio_input_pin_schema,
-    cv.Optional(CONF_SSS_PIN, default=21): pins.gpio_output_pin_schema,
     cv.Optional(CONF_VREF, default=2.5): cv.float_,
     cv.Optional(CONF_CLOCK_MHZ, default=7.68): cv.float_,
     cv.Optional(CONF_DRDY_PIN, default=20): pins.gpio_input_pin_schema,
@@ -70,4 +69,5 @@ async def to_code(config):
     if CONF_CHIP_SELECT_PIN in config:
         cs = await cg.gpio_pin_expression(config[CONF_CHIP_SELECT_PIN])
         cg.add(var.set_chip_select_pin(cs))
+
     
