@@ -15,7 +15,14 @@ ADCADS1256 = adc_ads_1256_ns.class_(
     "ADCADS1256", cg.Component, spi.SPIDevice
 )
 ADCADS1256ESP32IDF = adc_ads_1256_ns.class_('ADCADS1256ESP32IDF', cg.Component)
-
+CONF_MOSI_PIN = 'mosi_pin'
+CONF_MISO_PIN = 'miso_pin'
+CONF_SS_PIN = 'ss_pin'
+CONF_VREF = 'vref'
+CONF_CLOCK_MHZ = 'clock_mhz'
+CONF_DRDY_PIN = 'drdy_pin'
+CONF_RESET_PIN = 'reset_pin'
+CONF_CHIP_SELECT_PIN = 'chip_select_pin'
 def _declare_type(value):
     if CORE.is_esp32:
         if CORE.using_esp_idf:
@@ -67,6 +74,7 @@ async def to_code(config):
         cs = await cg.gpio_pin_expression(config[CONF_CHIP_SELECT_PIN])
         cg.add(var.set_chip_select_pin(cs))
     
+
 
 
 
