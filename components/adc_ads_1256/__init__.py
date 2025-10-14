@@ -11,6 +11,14 @@ ADCADS1256 = adc_ads_1256_ns.class_(
 )
 
 
+def _declare_type(value):
+    if CORE.is_esp32:
+        if CORE.using_esp_idf:
+            return cv.declare_id(ADCADS1256ESP32IDF)(value)
+
+    raise NotImplementedError
+
+
 CONFIG_SCHEMA = cv.Schema({
     cv.GenerateID(): _declare_type,
     cv.Optional(CONF_MOSI_PIN, default=18): pins.gpio_output_pin_schema,
@@ -20,17 +28,8 @@ CONFIG_SCHEMA = cv.Schema({
     cv.Optional(CONF_CLOCK_MHZ, default=7.68): cv.float_,
     cv.Optional(CONF_DRDY_PIN, default=20): pins.gpio_input_pin_schema,
     cv.Optional(CONF_RESET_PIN, default=22): pins.gpio_output_pin_schema,
-    cv.Optional(CONF_CHIP_SELECT_PIN, default=21): pins.gpio_output_pin_schema,
-
-    # cv.Optional(CONF_ENABLE_PIN): pins.gpio_output_pin_schema,
-    # cv.Optional(CONF_TX_PIN, default=5): pins.internal_gpio_output_pin_schema,
-    # cv.Optional(CONF_UART_NUM, default=1): cv.int_range(min=0, max=UART_MAX),
-    # cv.Optional(CONF_PERIODIC_UPDATE, default=True): cv.boolean,
-    # cv.Optional(CONF_FORCE_FULL_FRAMES, default=False): cv.boolean,
-    # cv.Optional(CONF_CUSTOM_MAB_LEN, default=12): cv.int_range(min=12, max=1000),
-    # cv.Optional(CONF_CUSTOM_BREAK_LEN, default=92): cv.int_range(min=92, max=1000),
-    # cv.Optional(CONF_UPDATE_INTERVAL, default=500): cv.int_range(),
-}).extend(cv.COMPONENT_SCHEMA).extend(uart.UART_DEVICE_SCHEMA)
+    cv.Optional(CONF_CHIP_SELECT_PIN, default=23): pins.gpio_output_pin_schema,
+}).extend(cv.COMPONENT_SCHEMA).extend(spi.SPIDeviceSchema)
 
 
 
@@ -38,7 +37,6 @@ async def to_code(config):
     cg.add_global(adc_ads_1256_ns.using)
     var = cg.new_Pvariable(config[CONF_ID])
     await cg.register_component(var, config)
-    # await uart.register_uart_device(var, config)
     await spi.register_spi_device(var, config)
      
     if CONF_MOSI_PIN in config:

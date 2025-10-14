@@ -8,4 +8,42 @@ adc_ads_1256:
 spi:
   clk_pin: D5
   miso_pin: D6
-```
+
+name: "ADS1256"
+id: adc_ads_1256
+sck_pin: 9
+miso_pin: 19
+mosi_pin: 18
+ss_pin: 21
+vRef: 2.5
+clockMHZ: 7.68
+drdy_pin: 20  # Connect to DRDY pin of ADS1256
+reset_pin: #22 # Connect to RESET pin of ADS1256
+  number: GPIO22
+  inverted: false
+chip_select_pin: #21 # Connect to CS pin of ADS1256
+  number: GPO21
+  inverted: false
+
+        
+sensors:
+  - name: "ADS1256 Sensor 1"
+    id: sensor1
+    unit_of_measurement: "V"
+    accuracy_decimals: 3
+    icon: "mdi:flash"
+  - name: "ADS1256 Sensor 2"
+    id: sensor2
+    unit_of_measurement: "V"
+    accuracy_decimals: 3
+    icon: "mdi:flash"
+  - name: "ADS1256 Sensor 3"
+    id: sensor3
+    unit_of_measurement: "V"
+    accuracy_decimals: 3
+    icon: "mdi:flash"
+  - name: "ADS1256 Sensor 4"
+    id: sensor4
+    unit_of_measurement: "V"
+    accuracy_decimals: 3
+    icon: "mdi:flash"
