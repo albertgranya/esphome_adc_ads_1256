@@ -6,8 +6,8 @@ from esphome import pins
 from esphome.const import CONF_ID
 CODEOWNERS = ['@albertgranya']
 
-DEPENDENCIES = ['spi','output']
-MULTI_CONF = True
+DEPENDENCIES = ['spi'] 
+
 
 
 adc_ads_1256_ns = cg.esphome_ns.namespace("adc_ads_1256")
@@ -67,6 +67,7 @@ async def to_code(config):
         cs = await cg.gpio_pin_expression(config[CONF_CHIP_SELECT_PIN])
         cg.add(var.set_chip_select_pin(cs))
     
+
 
 
 
