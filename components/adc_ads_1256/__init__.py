@@ -4,7 +4,7 @@ from esphome.components import spi
 from esphome.core import CORE
 from esphome import pins
 
-from esphome.const import CONF_SSSS_PIN,CONF_ID,CONF_MOSI_PIN,CONF_MISO_PIN,CONF_VREF, CONF_CLOCK_MHZ,CONF_DRDY_PIN, CONF_RESET_PIN,CONF_CHIP_SELECT_PIN
+from esphome.const import CONF_ID,CONF_MOSI_PIN,CONF_MISO_PIN,CONF_VREF, CONF_CLOCK_MHZ,CONF_DRDY_PIN, CONF_RESET_PIN,CONF_CHIP_SELECT_PIN,CONF_SS_PIN
 
 CODEOWNERS = ['@albertgranya']
 
@@ -30,7 +30,7 @@ CONFIG_SCHEMA = cv.Schema({
     cv.GenerateID(): _declare_type,
     cv.Optional(CONF_MOSI_PIN, default=18): pins.gpio_output_pin_schema,
     cv.Optional(CONF_MISO_PIN, default=19): pins.gpio_input_pin_schema,
-    cv.Optional(CONF_SSSS_PIN, default=21): pins.gpio_output_pin_schema,
+    cv.Optional(CONF_SS_PIN, default=21): pins.gpio_output_pin_schema,
     cv.Optional(CONF_VREF, default=2.5): cv.float_,
     cv.Optional(CONF_CLOCK_MHZ, default=7.68): cv.float_,
     cv.Optional(CONF_DRDY_PIN, default=20): pins.gpio_input_pin_schema,
@@ -52,8 +52,8 @@ async def to_code(config):
     if CONF_MISO_PIN in config:
         miso = await cg.gpio_pin_expression(config[CONF_MISO_PIN])
         cg.add(var.set_miso_pin(miso))
-    if CONF_SSSS_PIN in config:
-        ss = await cg.gpio_pin_expression(config[CONF_SSSS_PIN])
+    if CONF_SS_PIN in config:
+        ss = await cg.gpio_pin_expression(config[CONF_SS_PIN])
         cg.add(var.set_ss_pin(ss))
     if CONF_VREF in config:
         cg.add(var.set_vref(config[CONF_VREF]))
@@ -69,6 +69,7 @@ async def to_code(config):
         cs = await cg.gpio_pin_expression(config[CONF_CHIP_SELECT_PIN])
         cg.add(var.set_chip_select_pin(cs))
     
+
 
 
 
