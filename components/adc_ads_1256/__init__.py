@@ -16,7 +16,7 @@ adc_ads_1256_ns = cg.esphome_ns.namespace("adc_ads_1256")
 ADCADS1256 = adc_ads_1256_ns.class_(
     "ADCADS1256", cg.Component, spi.SPIDevice
 )
-
+ADCADS1256ESP32IDF = adc_ads_1256_ns.class_('ADCADS1256ESP32IDF', cg.Component)
 
 def _declare_type(value):
     if CORE.is_esp32:
@@ -69,6 +69,7 @@ async def to_code(config):
         cs = await cg.gpio_pin_expression(config[CONF_CHIP_SELECT_PIN])
         cg.add(var.set_chip_select_pin(cs))
     
+
 
 
 
