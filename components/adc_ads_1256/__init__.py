@@ -41,7 +41,7 @@ CONFIG_SCHEMA = cv.Schema({
     cv.Optional(CONF_DRDY_PIN, default=20): pins.gpio_input_pin_schema,
     cv.Optional(CONF_RESET_PIN, default=22): pins.gpio_output_pin_schema,
     cv.Optional(CONF_CHIP_SELECT_PIN, default=23): pins.gpio_output_pin_schema,
-}).extend(cv.COMPONENT_SCHEMA).extend(spi.SPIDeviceSchema)
+}).extend(cv.COMPONENT_SCHEMA).extend(spi.spi_device_schema)
 
 
 
@@ -74,6 +74,7 @@ async def to_code(config):
         cs = await cg.gpio_pin_expression(config[CONF_CHIP_SELECT_PIN])
         cg.add(var.set_chip_select_pin(cs))
     
+
 
 
 
