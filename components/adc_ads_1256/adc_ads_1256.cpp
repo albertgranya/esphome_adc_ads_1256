@@ -7,9 +7,10 @@ namespace adc_ads_1256 {
 static const char *TAG = "adc_ads_1256";
 
 // Construct and init ADS1256 object
-static ADS1256 adc(sck,miso,mosi,ss,clockMHZ,vRef,true); // RESETPIN is permanently tied to 3.3v
+static ADS1256 adc;//(sck,miso,mosi,ss,clockMHZ,vRef,true); // RESETPIN is permanently tied to 3.3v
 void ADCADS1256::setup() {
-adc.init();
+//adc.init();
+adc(sck_pin_, miso_pin_, mosi_pin_, ss_pin_, clockMHZ_, vRef_, true);
 }
 
 void ADCADS1256::loop() {

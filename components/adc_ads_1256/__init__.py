@@ -81,4 +81,3 @@ async def to_code(config):
     # cg.add(var.set_break_len(config[CONF_CUSTOM_BREAK_LEN]))
     # cg.add(var.set_update_interval(config[CONF_UPDATE_INTERVAL]))
 
-
