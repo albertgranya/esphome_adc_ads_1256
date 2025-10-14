@@ -2,15 +2,24 @@ import esphome.codegen as cg
 import esphome.config_validation as cv
 from esphome.components import spi
 from esphome.core import CORE
+
+
+
 from esphome import pins
 from esphome.const import CONF_ID
 CODEOWNERS = ['@albertgranya']
 
 DEPENDENCIES = ['spi'] 
-
+MULTI_CONF = True
 
 
 adc_ads_1256_ns = cg.esphome_ns.namespace("adc_ads_1256")
+
+spi_device_ns = cg.esphome_ns.namespace("spi_device")
+
+spi_device = spi_device_ns.class_("SPIDeviceComponent", cg.Component, spi.SPIDevice)
+
+
 ADCADS1256 = adc_ads_1256_ns.class_(
     "ADCADS1256", cg.Component, spi.SPIDevice
 )
@@ -41,7 +50,7 @@ CONFIG_SCHEMA = cv.Schema({
     cv.Optional(CONF_DRDY_PIN, default=20): pins.gpio_input_pin_schema,
     cv.Optional(CONF_RESET_PIN, default=22): pins.gpio_output_pin_schema,
     cv.Optional(CONF_CHIP_SELECT_PIN, default=23): pins.gpio_output_pin_schema,
-}).extend(cv.COMPONENT_SCHEMA)
+}).extend(cv.COMPONENT_SCHEMA).extend(spi.spi_device_schema(False, "1MHz")
 #.extend(spi.spi_device_schema)
 
 
@@ -75,6 +84,7 @@ async def to_code(config):
         cs = await cg.gpio_pin_expression(config[CONF_CHIP_SELECT_PIN])
         cg.add(var.set_chip_select_pin(cs))
     
+
 
 
 
