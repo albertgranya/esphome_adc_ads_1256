@@ -2,14 +2,14 @@
 
 #ifdef USE_ESP_IDF
 
-#include "dmx512.h"
+#include "adc_ads_1256.h"
 
 namespace esphome {
-namespace dmx512 {
+namespace adc_ads_1256 {
 
-class DMX512ESP32IDF : public DMX512 {
+class ADCADS1256ESP32IDF : public ADCADS1256 {
  public:
-  DMX512ESP32IDF() = default;
+  ADCADS1256ESP32IDF() = default;
 
   void send_break() override;
 
@@ -18,7 +18,7 @@ class DMX512ESP32IDF : public DMX512 {
   }
 };
 
-}  // namespace dmx512
+}  // namespace adc_ads_1256
 }  // namespace esphome
 
 #endif  // USE_ESP_IDF

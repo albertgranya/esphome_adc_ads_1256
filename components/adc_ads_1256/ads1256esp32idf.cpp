@@ -1,21 +1,21 @@
 #ifdef USE_ESP_IDF
 
-#include "dmx512esp32idf.h"
+#include "ads1256esp32idf.h"
 #include "esphome/core/log.h"
 #include <driver/uart.h>
 
 namespace esphome {
-namespace dmx512 {
+namespace adc_ads_1256 {
 
-static const char *TAG = "dmx512";
+static const char *TAG = "adc_ads_1256";
 
-void DMX512ESP32IDF::send_break() {
+void ads1256esp32idf::send_break() {
   uart_set_line_inverse((uart_port_t)this->uart_idx_, UART_SIGNAL_TXD_INV);
   delayMicroseconds(this->break_len_);
   uart_set_line_inverse((uart_port_t)this->uart_idx_, UART_SIGNAL_INV_DISABLE);
   delayMicroseconds(this->mab_len_);
 }
 
-}  // namespace dmx512
+}  // namespace adc_ads_1256
 }  // namespace esphome
 #endif  // USE_ESP_IDF

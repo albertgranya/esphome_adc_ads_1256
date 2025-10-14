@@ -27,27 +27,26 @@ class ADCADS1256 : public Component,
     esphome::ADS1256::ADS1256Component *adc_{nullptr};
 // Construct and init ADS1256 object
     //ADS1256 adc(sck,miso,mosi,ss,clockMHZ,vRef,true); // RESETPIN is permanently tied to 3.3v
-    std::vector<uint8_t> rx_buffer_;
-    uint32_t last_dmx512_transmission_{0};
-    uint8_t device_values_[DMX_MSG_SIZE];
-    int uart_idx_{0};
-    InternalGPIOPin *tx_pin_{nullptr};
-    int update_interval_{UPDATE_INTERVAL_MS};
-    int mab_len_{DMX_MAB_LEN};
-    int break_len_{DMX_BREAK_LEN};
-    uint16_t max_chan_{0};
-    bool update_{true};
-    bool periodic_update_{true};
-    bool force_full_frames_{false};
-    uint32_t last_update_{0};
-    GPIOPin *pin_enable_{nullptr};
+    // std::vector<uint8_t> rx_buffer_;
+    // uint32_t last_dmx512_transmission_{0};
+    // uint8_t device_values_[DMX_MSG_SIZE];
+    // int uart_idx_{0};
+    // InternalGPIOPin *tx_pin_{nullptr};
+    // int update_interval_{UPDATE_INTERVAL_MS};
+    // int mab_len_{DMX_MAB_LEN};
+    // int break_len_{DMX_BREAK_LEN};
+    // uint16_t max_chan_{0};
+    // bool update_{true};
+    // bool periodic_update_{true};
+    // bool force_full_frames_{false};
+    // uint32_t last_update_{0};
+    // GPIOPin *pin_enable_{nullptr};
     //float vRef = 2.5; // voltage reference
     //float clockMHZ = 7.68; // crystal frequency used on ADS1256
    
     float vRef_{vRef}; // voltage reference
     float clockMHZ_{clockMHZ}; // crystal frequency used on ADS1256
 
-    float vRef_{vRef};
     //int8_t sck=9;
     //int sck_pin_{sck_pin};
     InternalGPIOPin *sck_pin_{nullptr};
