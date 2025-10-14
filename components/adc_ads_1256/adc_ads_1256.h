@@ -12,6 +12,7 @@ static const int DMX_MAB_LEN = 12;
 static const int DMX_MIN_INTERVAL_MS = 23;
 
 namespace esphome {
+namespace components {
 namespace adc_ads_1256 {
 
 class ADCADS1256 : public Component, 
@@ -66,4 +67,6 @@ protected:
 
 
 }  // namespace adc_ads_1256
+}
 }  // namespace esphome
+
