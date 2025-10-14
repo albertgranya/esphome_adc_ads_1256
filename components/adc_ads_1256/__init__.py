@@ -2,7 +2,6 @@ import esphome.codegen as cg
 import esphome.config_validation as cv
 from esphome.components import spi
 from esphome.const import CONF_ID
-from esphome.const import CONF_TX_PIN, CONF_ENABLE_PIN, CONF_UPDATE_INTERVAL, CONF_PERIODIC_UPDATE, CONF_FORCE_FULL_FRAMES
 from esphome.const import CONF_MOSI_PIN,CONF_MISO_PIN,CONF_SS_PIN,CONF_VREF, CONF_CLOCK_MHZ,CONF_DRDY_PIN, CONF_RESET_PIN,CONF_CHIP_SELECT_PIN
 DEPENDENCIES = ["spi"]
 
@@ -81,4 +80,5 @@ async def to_code(config):
     # cg.add(var.set_mab_len(config[CONF_CUSTOM_MAB_LEN]))
     # cg.add(var.set_break_len(config[CONF_CUSTOM_BREAK_LEN]))
     # cg.add(var.set_update_interval(config[CONF_UPDATE_INTERVAL]))
+
 
