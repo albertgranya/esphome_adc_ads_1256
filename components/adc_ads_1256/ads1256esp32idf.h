@@ -14,7 +14,7 @@ class ADCADS1256ESP32IDF : public ADCADS1256 {
   void send_break() override;
 
   void set_uart_num(int num) override {
-    this->uart_idx_ = num;
+    
   }
 };
 
