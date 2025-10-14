@@ -2,6 +2,7 @@
 #include "adc_ads_1256.h"
 
 namespace esphome {
+namespace components{
 namespace adc_ads_1256 {
 
 static const char *TAG = "adc_ads_1256";
@@ -38,4 +39,6 @@ void DMX512Output::write_state(float state) {
 
 
 }  // namespace adc_ads_1256
+}
 }  // namespace esphome
+
