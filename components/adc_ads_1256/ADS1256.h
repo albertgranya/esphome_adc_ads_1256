@@ -203,8 +203,8 @@
 #define ADS1256_DRATE_2_5SPS 0x03
 
 // #include "Arduino.h"
-// #include "SPI.h"
-#include "spi_device.h"
+#include "SPI.h"
+// #include "spi_device.h"
 class ADS1256 {
  public:
   ADS1256(int8_t sck, int8_t miso, int8_t mosi, int8_t ss ,float clockspdMhz, float vref, bool useResetPin);
