@@ -203,7 +203,7 @@
 #define ADS1256_DRATE_2_5SPS 0x03
 
 // #include "Arduino.h"
-((#include "SPI.h"
+// #include "SPI.h"
 #include "esphome/core/component.h"
 #include "esphome/components/spi/spi.h"
 // #include "spi_device.h"
