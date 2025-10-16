@@ -2,7 +2,7 @@
 
 #include "esphome/core/component.h"
 #include "esphome/components/spi/spi.h"
-#include "esphome/components/output/float_output.h"
+//#include "esphome/components/output/float_output.h"
 #include "ADS1256.h"
 static const uint16_t UPDATE_INTERVAL_MS = 500;
 static const uint16_t DMX_MAX_CHANNEL = 512;
@@ -52,12 +52,12 @@ class ADCADS1256 : public Component,
     float sensor1, sensor2, sensor3, sensor4;
 };
 
-class ADS1256Output : public output::FloatOutput, public Component {
-public:
-  void set_universe(ADS1256 *universe) { this->universe_ = universe; }
-  void set_channel(uint16_t channel);
-  void write_state(float state) override;
-  float state;
+// class ADS1256Output : public output::FloatOutput, public Component {
+// public:
+//   void set_universe(ADS1256 *universe) { this->universe_ = universe; }
+//   void set_channel(uint16_t channel);
+//   void write_state(float state) override;
+//   float state;
 
 protected:
   uint16_t channel_{0};
