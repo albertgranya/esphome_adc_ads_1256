@@ -4,7 +4,6 @@
 namespace esphome {
 namespace components{
 namespace adc_ads_1256 {
-
 static const char *TAG = "adc_ads_1256";
 
 // Construct and init ADS1256 object
@@ -14,6 +13,7 @@ void ADCADS1256::setup() {
 adc(sck_pin_, miso_pin_, mosi_pin_, ss_pin_, clockMHZ_, vRef_, true);
 }
 
+
 void ADCADS1256::loop() {
 
 }
@@ -21,6 +21,7 @@ void ADCADS1256::loop() {
 void ADCADS1256::dump_config(){
     ESP_LOGCONFIG(TAG, "Empty SPI component");
 }
+
 
 // void DMX512::set_channel_used(uint16_t channel) {
 

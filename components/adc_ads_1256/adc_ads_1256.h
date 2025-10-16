@@ -10,7 +10,6 @@ static const uint16_t DMX_MSG_SIZE = DMX_MAX_CHANNEL + 1;
 static const int DMX_BREAK_LEN = 92;
 static const int DMX_MAB_LEN = 12;
 static const int DMX_MIN_INTERVAL_MS = 23;
-
 namespace esphome {
 namespace components {
 namespace adc_ads_1256 {
