@@ -3,6 +3,11 @@
         Written by Adien Akhmad, August 2015
 	Modifified  Jan 2019 by Axel Sepulveda for ATMEGA328
 */
+// #include "Arduino.h"
+// #include "SPI.h"
+#include "esphome/core/component.h"
+#include "esphome/components/spi/spi.h"
+// #include "spi_device.h"
 
 #ifndef ADS1256_h
 #define ADS1256_h
@@ -202,11 +207,7 @@
 #define ADS1256_DRATE_5SPS 0x13
 #define ADS1256_DRATE_2_5SPS 0x03
 
-// #include "Arduino.h"
-// #include "SPI.h"
-#include "esphome/core/component.h"
-#include "esphome/components/spi/spi.h"
-// #include "spi_device.h"
+
 class ADS1256 {
  public:
   ADS1256(int8_t sck, int8_t miso, int8_t mosi, int8_t ss ,float clockspdMhz, float vref, bool useResetPin);
