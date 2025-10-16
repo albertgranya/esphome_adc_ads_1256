@@ -2,7 +2,7 @@
 
 #include "esphome/core/component.h"
 #include "esphome/components/spi/spi.h"
-#include "esphome/components/output/float_output.h"
+//#include "esphome/components/output/float_output.h"
 #include "ADS1256.h"
 static const uint16_t UPDATE_INTERVAL_MS = 500;
 static const uint16_t DMX_MAX_CHANNEL = 512;
@@ -69,4 +69,5 @@ protected:
 }  // namespace adc_ads_1256
 }
 }  // namespace esphome
+
 
