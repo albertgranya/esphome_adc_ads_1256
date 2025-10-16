@@ -202,7 +202,7 @@
 #define ADS1256_DRATE_5SPS 0x13
 #define ADS1256_DRATE_2_5SPS 0x03
 
-#include "Arduino.h"
+//#include "Arduino.h"
 #include "SPI.h"
 
 class ADS1256 {
