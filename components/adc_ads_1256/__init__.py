@@ -5,11 +5,8 @@ from esphome.core import CORE
 from esphome import pins
 from esphome.const import CONF_ID
 CODEOWNERS = ['@albertgranya']
-
 DEPENDENCIES = ['spi'] 
 MULTI_CONF = True
-
-
 adc_ads_1256_ns = cg.esphome_ns.namespace("adc_ads_1256")
 
 spi_device_ns = cg.esphome_ns.namespace("spi_device")
@@ -50,8 +47,6 @@ CONFIG_SCHEMA = cv.Schema({
 }).extend(spi.spi_device_schema(False, "1MHz")).extend(cv.COMPONENT_SCHEMA)
 
 #.extend(spi.spi_device_schema)
-
-
 
 async def to_code(config):
     cg.add_global(adc_ads_1256_ns.using)

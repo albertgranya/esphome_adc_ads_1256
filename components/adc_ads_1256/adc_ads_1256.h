@@ -4,16 +4,10 @@
 #include "esphome/components/spi/spi.h"
 //#include "esphome/components/output/float_output.h"
 #include "ADS1256.h"
-static const uint16_t UPDATE_INTERVAL_MS = 500;
-static const uint16_t DMX_MAX_CHANNEL = 512;
-static const uint16_t DMX_MSG_SIZE = DMX_MAX_CHANNEL + 1;
-static const int DMX_BREAK_LEN = 92;
-static const int DMX_MAB_LEN = 12;
-static const int DMX_MIN_INTERVAL_MS = 23;
+
 namespace esphome {
 namespace components {
 namespace adc_ads_1256 {
-
 class ADCADS1256 : public Component, 
                     public spi::SPIDevice<spi::BIT_ORDER_MSB_FIRST,spi::CLOCK_POLARITY_LOW, 
                             spi::CLOCK_PHASE_LEADING,spi::DATA_RATE_1KHZ> {
@@ -27,12 +21,11 @@ class ADCADS1256 : public Component,
 // Construct and init ADS1256 object
     //ADS1256 adc(sck,miso,mosi,ss,clockMHZ,vRef,true); // RESETPIN is permanently tied to 3.3v
     
-   
+  
     float vRef_{vRef}; // voltage reference
     float clockMHZ_{clockMHZ}; // crystal frequency used on ADS1256
 
     //int8_t sck=9;
-    //int sck_pin_{sck_pin};
     InternalGPIOPin *sck_pin_{nullptr};
     //int8_t miso=19;
     InternalGPIOPin *miso_pin_{nullptr};
