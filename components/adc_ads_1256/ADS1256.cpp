@@ -5,7 +5,7 @@
 */
 
 #include "ADS1256.h"
-#include "Arduino.h"
+//#include "Arduino.h"
 #include "SPI.h"
 
 ADS1256::ADS1256(int8_t sck, int8_t miso, int8_t mosi, int8_t ss ,float clockspdMhz, float vref, bool useResetPin) {
