@@ -3,12 +3,11 @@
         Written by Adien Akhmad, August 2015
 		Modfified  Jan 2019 by Axel Sepulveda for ATMEGA328
 */
-
-#include "ADS1256.h"
 //#include "Arduino.h"
 //#include "SPI.h"
-#include "esphome/core/component.h"
-#include "esphome/components/spi/spi.h"
+#include "ADS1256.h"
+// #include "esphome/core/component.h"
+// #include "esphome/components/spi/spi.h"
 ADS1256::ADS1256(int8_t sck, int8_t miso, int8_t mosi, int8_t ss ,float clockspdMhz, float vref, bool useResetPin) {
   // Set DRDY as input
   pinMode(pinDRDY, INPUT);      
